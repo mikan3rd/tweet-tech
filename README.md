@@ -13,10 +13,10 @@
 | wallpaper    | string |  |
 
 **Association**
-has_many :tweets
-has_many :likes
-has_many :retweets
-has_many :follow
+* has_many :tweets
+* has_many :likes
+* has_many :retweets
+* has_many :follow
 ***
 
 ### tweet table
@@ -27,11 +27,12 @@ has_many :follow
 | image | string |  |
 | user  | references | foreign_key: true, null: false |
 
+
 **Association**
-belongs_to :user
-has_many :likes
-has_many :retweets
-acts_in_relation with: :follow
+* belongs_to :user
+* has_many :likes
+* has_many :retweets
+* acts_in_relation with: :follow
 ***
 
 ### follow table
@@ -42,7 +43,7 @@ acts_in_relation with: :follow
 | target_user_id | integer |  |
 
 **Association**
-acts_in_relation :action, source: :user, target: :user
+* acts_in_relation :action, source: :user, target: :user
 ***
 
 ## like table
@@ -53,8 +54,8 @@ acts_in_relation :action, source: :user, target: :user
 | tweet | references | foreign_key: true, null: false |
 
 **Association**
-belongs_to :user
-belongs_to :tweet
+* belongs_to :user
+* belongs_to :tweet
 ***
 
 ## retweet table
@@ -65,6 +66,6 @@ belongs_to :tweet
 | tweet | references | foreign_key: true, null: false |
 
 **Association**
-belongs_to :user
-belongs_to :tweet
+* belongs_to :user
+* belongs_to :tweet
 ***
