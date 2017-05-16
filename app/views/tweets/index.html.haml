@@ -1,9 +1,10 @@
-%p#notice= notice
+
 %h1 Twitter
 - @tweets.each do |tweet|
   %h4= tweet.user.nickname
   %h5= "@" + tweet.user.username
   %p= tweet.content
+
   %table
     %thead
       %tr
