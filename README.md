@@ -1,7 +1,7 @@
 # データベース設計
 
 ### users table
-* deviseを使用して作成
+* gem 'devise' を使用
 
 | Column   | type   | Option |
 |:--|:--|:---|
@@ -36,6 +36,7 @@
 ***
 
 ### follow table
+* gem 'acts_in_relation' を使用
 
 | Column   | type   | Option |
 |:--|:--|:---|
