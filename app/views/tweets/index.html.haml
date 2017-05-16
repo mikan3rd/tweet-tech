@@ -6,8 +6,9 @@
       %th{:colspan => "3"}
   %tbody
     - @tweets.each do |tweet|
-      %p
-        = tweet.content
+      %h4= tweet.user.nickname
+      %h5= tweet.user.username
+      %p= tweet.content
       %tr
         %td= link_to 'Show', tweet
         %td= link_to 'Edit', edit_tweet_path(tweet)
