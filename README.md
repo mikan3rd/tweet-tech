@@ -2,6 +2,7 @@
 
 ### users table
 * gem 'devise' を使用
+* gem 'acts_in_relation' を使用
 
 | Column   | type   | Option |
 |:--|:--|:---|
@@ -16,10 +17,10 @@
 * has_many :tweets
 * has_many :likes
 * has_many :retweets
-* has_many :follow
+* acts_in_relation with: :follow
 ***
 
-### tweet table
+### tweets table
 
 | Column   | type   | Option |
 |:--|:--|:---|
@@ -32,10 +33,9 @@
 * belongs_to :user
 * has_many :likes
 * has_many :retweets
-* acts_in_relation with: :follow
 ***
 
-### follow table
+### follows table
 * gem 'acts_in_relation' を使用
 
 | Column   | type   | Option |
@@ -47,7 +47,7 @@
 * acts_in_relation :action, source: :user, target: :user
 ***
 
-## like table
+## likes table
 
 | Column   | type   | Option |
 |:--|:--|:---|
@@ -59,7 +59,7 @@
 * belongs_to :tweet
 ***
 
-## retweet table
+## retweets table
 
 | Column   | type   | Option |
 |:--|:--|:---|
