@@ -9,7 +9,7 @@ gem 'acts_in_relation'
 gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'sass-globbing'
+
 
 group :production do
   gem 'unicorn'
