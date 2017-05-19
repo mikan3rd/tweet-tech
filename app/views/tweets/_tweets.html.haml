@@ -1,0 +1,13 @@
+= link_to tweet do
+  .tweets-wrapper.btn
+    %h4.tweets-nickname= tweet.user.nickname
+    %h5.tweets-username= "@" + tweet.user.username
+    %p.tweets-content= tweet.content
+    %p.tweets-content
+      - if tweet.image.present?
+        = image_tag(tweet.image)
+
+
+    .btn-group{"aria-label" => "...", role: "group"}
+      = link_to '編集', edit_tweet_path(tweet), class: "btn btn-default"
+      = link_to '削除', tweet, method: :delete, class: "btn btn-default", data: { confirm: 'このツイートを本当に削除しますか?' }

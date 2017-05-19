@@ -1,0 +1,21 @@
+footer {
+}
+
+.footer-content {
+  width: 100vw;
+  background-color: $blue;
+  height: 50px;
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  border-top: solid 1px $light-gray;
+}
+
+.fa {
+  background-color: white;
+  color: black;
+  display: inline;
+  text-align: center;
+  width: calc(100vw / 5);
+  margin: 12.5px;
+}

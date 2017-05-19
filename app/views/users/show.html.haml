@@ -1,0 +1,7 @@
+
+%h2= current_user.nickname
+%h3= current_user.username
+
+= link_to 'ログアウト', destroy_user_session_path, method: :delete
+
+= render partial: 'tweets/tweets', collection: @tweets, as: :tweet

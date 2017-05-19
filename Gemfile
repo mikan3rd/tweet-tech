@@ -9,6 +9,8 @@ gem 'acts_in_relation'
 gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 
 
 group :production do
