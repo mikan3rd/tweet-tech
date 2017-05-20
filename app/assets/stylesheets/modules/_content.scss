@@ -21,7 +21,6 @@ body {
 
 .tweets-nickname {
   float: left;
-  padding-right: 5px;
   color: black;
 }
 
@@ -29,9 +28,17 @@ body {
   float: left;
   line-height: 18px;
   color: $light-gray;
+  padding-left: 5px;
 }
 
 .tweets-content {
   clear: both;
   color: black;
+}
+
+.tweets-time {
+  color: $light-gray;
+}
+
+.btn-group {
 }
