@@ -4,4 +4,11 @@ class UsersController < ApplicationController
   def show
     @tweets = current_user.tweets.order(created_at: :desc)
   end
+
+  def search
+  end
+
+  def information
+  end
+
 end

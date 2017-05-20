@@ -1,5 +1,8 @@
 %header
   .header-wrapper
-    = link_to new_tweet_path do
-      .btn.btn-default.glyphicon.glyphicon-edit
+    -if current_user
+      =link_to information_users_path do
+        .btn.btn-default.glyphicon.glyphicon-info-sign
+      = link_to new_tweet_path do
+        .btn.btn-default.glyphicon.glyphicon-edit
     %h1.title TECH::TWEET

@@ -13,9 +13,17 @@ header {
 
 .title {
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   margin: 0 auto;
   line-height: 50px;
+}
+
+.glyphicon-info-sign {
+  background-color: white;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  font-size: 18px;
 }
 
 .glyphicon-edit {
@@ -24,4 +32,12 @@ header {
   right: 5px;
   top: 5px;
   font-size: 18px;
+}
+.info-title {
+  margin-left: 20px;
+}
+
+.info {
+  list-style: disc;
+  margin-left: 60px;
 }
