@@ -1,3 +1,13 @@
 @import "./reset";
-@import "./scaffolds";
-@import "./modules/home";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "./config/color";
+
+@import "./modules/login";
+@import "./modules/header";
+@import "./modules/content";
+@import "./modules/footer";

@@ -1,0 +1,48 @@
+body {
+  font-family: Arial,”ヒラギノ角ゴ Pro W3″,”Hiragino Kaku Gothic Pro”,Osaka,”メイリオ”,Meiryo,”ＭＳ Ｐゴシック”,”MS PGothic”,sans-serif;
+  position: relative;
+}
+
+.body-wrapper {
+  background-color: white;
+  height: calc(100vh - 100px);
+  width: 100vw;
+  overflow: auto;
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+}
+
+.tweets-wrapper {
+  border-bottom: solid 0.1px $light-gray;
+  display: block;
+  text-align: left;
+}
+
+.tweets-nickname {
+  float: left;
+  color: black;
+}
+
+.tweets-username {
+  float: left;
+  line-height: 18px;
+  color: $light-gray;
+  padding-left: 5px;
+}
+
+.tweets-content {
+  clear: both;
+  color: black;
+}
+
+.tweets-time {
+  color: $light-gray;
+}
+
+.btn-group {
+}
+
+.mypage {
+  border-bottom: solid 1px $light-gray;
+}

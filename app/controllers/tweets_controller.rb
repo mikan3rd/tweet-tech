@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_confirm, only: [:edit, :update, :destroy]
 
   # GET /tweets
   # GET /tweets.json
@@ -63,13 +64,18 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_tweet
       @tweet = Tweet.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
       params.require(:tweet).permit(:content, :image)
+    end
+
+    def current_user_confirm
+      if current_user.id != @tweet.user.id
+        redirect_to root_path, alert: "あなたはこのツイートの投稿者ではありません"
+      end
     end
 end

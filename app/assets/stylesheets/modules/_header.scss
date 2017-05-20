@@ -1,0 +1,43 @@
+header {
+  position: fixed;
+  background-color: $blue;
+  width: 100vw;
+  height: 50px;
+  text-align: center;
+  border-bottom: solid 1px $light-gray;
+}
+
+.header-wrapper {
+  position: relative;
+}
+
+.title {
+  color: white;
+  font-size: 20px;
+  margin: 0 auto;
+  line-height: 50px;
+}
+
+.glyphicon-info-sign {
+  background-color: white;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  font-size: 18px;
+}
+
+.glyphicon-edit {
+  background-color: white;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 18px;
+}
+.info-title {
+  margin-left: 20px;
+}
+
+.info {
+  list-style: disc;
+  margin-left: 60px;
+}

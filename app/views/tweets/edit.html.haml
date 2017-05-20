@@ -1,5 +1,9 @@
 %h1 Editing Tweet
 = render 'form', tweet: @tweet
-= link_to 'Show', @tweet
-|
-= link_to 'Back', tweets_path
+%br
+.btn-group
+  - if @tweet.user.id == current_user.id
+    = link_to '削除', @tweet, method: :delete, class: "btn btn-default", data: { confirm: 'このツイートを本当に削除しますか?' }
+  = link_to 'Show', @tweet, class: "btn btn-default"
+  = link_to 'Back', tweets_path, class: "btn btn-default"
+

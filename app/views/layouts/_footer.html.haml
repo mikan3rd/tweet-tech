@@ -1,0 +1,24 @@
+%footer
+  .footer-content
+    - if current_user
+      = link_to tweets_path do
+        .btn.btn-default.glyphicon.glyphicon-home
+          %br Home
+
+      .btn.btn-default.glyphicon.glyphicon-search
+        %br Search
+
+      .btn.btn-default.glyphicon.glyphicon-bell
+        %br Notice
+
+      .btn.btn-default.glyphicon.glyphicon-envelope
+        %br Message
+
+      = link_to user_path(current_user) do
+        .btn.btn-default.glyphicon.glyphicon-user
+          %br Me
+
+
+        / %li.footer-btn
+        /   = link_to '設定', edit_user_registration_path
+
