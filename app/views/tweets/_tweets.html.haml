@@ -16,6 +16,7 @@
     - else
       = link_to like_path(tweet.id), method: :post do
         .btn.btn-default.glyphicon.glyphicon-heart-empty
+          = tweet.likes.count.to_s
 
     = link_to :back do
       .btn.btn-default.glyphicon.glyphicon-retweet
