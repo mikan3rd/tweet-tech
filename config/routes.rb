@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :tweets
+  resources :tweets do
+    member do
+      get :liking_users
+    end
+  end
   resources :users, only: [:show] do
     member do
       get :like_tweets

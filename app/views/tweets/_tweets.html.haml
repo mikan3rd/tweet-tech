@@ -22,6 +22,7 @@
       .btn.btn-default.glyphicon.glyphicon-retweet
 
     .btn-group
+      = link_to '詳細', tweet, class: "btn btn-default"
       - if tweet.user.id == current_user.id
         = link_to '編集', edit_tweet_path(tweet), class: "btn btn-default"
         = link_to '削除', tweet, method: :delete, class: "btn btn-default", data: { confirm: 'このツイートを本当に削除しますか?' }

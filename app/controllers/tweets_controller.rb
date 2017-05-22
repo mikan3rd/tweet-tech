@@ -12,6 +12,7 @@ class TweetsController < ApplicationController
   # GET /tweets/1
   # GET /tweets/1.json
   def show
+    @liking_users = @tweet.liking_users.order(created_at: :DESC)
   end
 
   # GET /tweets/new
