@@ -75,7 +75,7 @@ class TweetsController < ApplicationController
 
     def current_user_confirm
       if current_user.id != @tweet.user.id
-        redirect_to root_path, alert: "あなたはこのツイートの投稿者ではありません"
+        redirect_to :back, alert: "あなたはこのツイートの投稿者ではありません"
       end
     end
 end

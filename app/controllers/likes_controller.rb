@@ -4,9 +4,9 @@ class LikesController < ApplicationController
     tweet = Tweet.find(params[:tweet_id])
     like = current_user.likes.new(tweet_id: tweet.id)
     if like.save
-      redirect_to root_path, notice: "いいね！しました"
+      redirect_to :back, notice: "いいね！しました"
     else
-      redirect_to root_path, alert: "いいね！できませんでした"
+      redirect_to :back, alert: "いいね！に失敗しました"
     end
   end
 
@@ -14,9 +14,9 @@ class LikesController < ApplicationController
     tweet = Tweet.find(params[:tweet_id])
     like = current_user.likes.find_by(tweet_id: tweet.id)
     if like.destroy
-      redirect_to root_path, notice: "いいね！を削除しました"
+      redirect_to :back, notice: "いいね！を削除しました"
     else
-      redirect_to root_path, alert: "いいね！を削除できませんでした"
+      redirect_to :back, alert: "いいね！削除に失敗しました"
     end
   end
 end
