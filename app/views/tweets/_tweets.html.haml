@@ -1,7 +1,8 @@
 = link_to tweet do
   .tweets-wrapper.btn
-    %h4.tweets-nickname= tweet.user.nickname
-    %h5.tweets-username= "@" + tweet.user.username
+    = link_to user_path(tweet.user) do
+      %h4.tweets-nickname= tweet.user.nickname
+      %h5.tweets-username= "@" + tweet.user.username
     %p.tweets-content= tweet.content
     %p.tweets-content
       - if tweet.image.present?
@@ -11,11 +12,12 @@
     - if current_user.likes.find_by(tweet_id: tweet.id)
       = link_to unlike_path(tweet.id), method: :delete do
         .btn.btn-default.glyphicon.glyphicon-heart
+          = tweet.likes.count.to_s
     - else
       = link_to like_path(tweet.id), method: :post do
         .btn.btn-default.glyphicon.glyphicon-heart-empty
 
-    = link_to tweet do
+    = link_to :back do
       .btn.btn-default.glyphicon.glyphicon-retweet
 
     .btn-group
