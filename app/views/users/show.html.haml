@@ -7,22 +7,25 @@
     %br
     %br
 
-  = "いいねした数：" + @user.likes.count.to_s
-  %br
   = "いいねされた総数：" + @liked.to_s
+  %br
   %br
 
   %ul.nav.nav-tabs
     %li.nav-item.active
-      %a.nav-link{ href: "#tweet-index", "data-toggle": "tab"} ツイート
+      %a.nav-link{ href: "#tweet-index", "data-toggle": "tab"}
+        ツイート
+        #{@tweets.count.to_s}
     %li.nav-item
-      %a.nav-link{ href: "#like-index", "data-toggle": "tab"} いいね
+      %a.nav-link{ href: "#like-index", "data-toggle": "tab"}
+        いいね
+        #{@user.likes.count.to_s}
 
   .tab-content
     #tweet-index.tab-pane.active
       = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
     #like-index.tab-pane
-      aaa
+      = render partial: 'tweets/tweets', collection: @like_tweets, as: :tweet
 
 
 / = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
