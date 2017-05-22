@@ -8,8 +8,13 @@
         = image_tag(tweet.image)
     %h5.tweets-time= tweet.created_at.strftime("%Y/%m/%d %H時%M分")
 
-    = link_to tweet do
-      .btn.btn-default.glyphicon.glyphicon-heart
+    - if current_user.likes.find_by(tweet_id: tweet.id)
+      = link_to unlike_path(tweet.id), method: :delete do
+        .btn.btn-default.glyphicon.glyphicon-heart
+    - else
+      = link_to like_path(tweet.id), method: :post do
+        .btn.btn-default.glyphicon.glyphicon-heart-empty
+
     = link_to tweet do
       .btn.btn-default.glyphicon.glyphicon-retweet
 

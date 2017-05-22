@@ -7,5 +7,7 @@ Rails.application.routes.draw do
       get 'information'
     end
   end
+  post   '/like/:tweet_id' => 'likes#like',   as: 'like'
+  delete '/like/:tweet_id' => 'likes#unlike', as: 'unlike'
   root 'tweets#index'
 end
