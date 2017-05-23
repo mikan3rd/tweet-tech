@@ -1,8 +1,10 @@
 %header
-  .header-wrapper
+  .header-wrapper.container
     -if current_user
       =link_to information_users_path do
         .btn.btn-default.glyphicon.glyphicon-info-sign
-      = link_to new_tweet_path do
-        .btn.btn-default.glyphicon.glyphicon-edit
+      .btn.btn-default.glyphicon.glyphicon-edit
     %h1.title TECH::TWEET
+
+-if current_user
+  = render 'tweets/tweet_modal', tweet: @new_tweet

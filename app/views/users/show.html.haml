@@ -1,8 +1,28 @@
 .mypage
-  %h2= current_user.nickname
-  %h3= "@" + current_user.username
+  %h2= @user.nickname
+  %h3= "@" + @user.username
 
-  = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default"
+  - if @user.id == current_user.id
+    = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default"
+    %br
+    %br
+
+  = "いいねされた総数：" + @liked.to_s
   %br
   %br
-= render partial: 'tweets/tweets', collection: @tweets, as: :tweet
+
+  %ul.nav.nav-tabs
+    %li.nav-item.active
+      %a.nav-link{ href: "#tweet-index", "data-toggle": "tab"}
+        ツイート
+        #{@tweets.count.to_s}
+    %li.nav-item
+      %a.nav-link{ href: "#like-index", "data-toggle": "tab"}
+        いいね
+        #{@user.likes.count.to_s}
+
+  .tab-content
+    #tweet-index.tab-pane.active
+      = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
+    #like-index.tab-pane
+      = render partial: 'tweets/tweets', collection: @like_tweets, as: :tweet

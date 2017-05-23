@@ -7,16 +7,18 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.order(created_at: :DESC)
+    @new_tweet = Tweet.new
   end
 
   # GET /tweets/1
   # GET /tweets/1.json
   def show
+    @liking_users = @tweet.liking_users.order(created_at: :DESC)
+    @new_tweet = Tweet.new
   end
 
   # GET /tweets/new
   def new
-    @tweet = Tweet.new
   end
 
   # GET /tweets/1/edit
@@ -30,7 +32,7 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to tweets_path, notice: 'Tweet was successfully created.' }
+        format.html { redirect_to tweets_path, notice: 'ツイートを投稿しました' }
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { render :new }
@@ -44,7 +46,7 @@ class TweetsController < ApplicationController
   def update
     respond_to do |format|
       if @tweet.update(tweet_params)
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully updated.' }
+        format.html { redirect_to @tweet, notice: 'ツイートを編集しました！' }
         format.json { render :show, status: :ok, location: @tweet }
       else
         format.html { render :edit }
@@ -75,7 +77,7 @@ class TweetsController < ApplicationController
 
     def current_user_confirm
       if current_user.id != @tweet.user.id
-        redirect_to root_path, alert: "あなたはこのツイートの投稿者ではありません"
+        redirect_to :back, alert: "あなたはこのツイートの投稿者ではありません"
       end
     end
 end

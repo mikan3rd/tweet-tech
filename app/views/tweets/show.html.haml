@@ -1,17 +1,27 @@
-%p#notice= notice
+= render 'tweets', tweet: @tweet
 
-%h4= @tweet.user.nickname
-%h5= "@" + @tweet.user.username
-%p= @tweet.content
-%br/
+%br
+  %ul.nav.nav-tabs
+    %li.nav-item.active
+      %a.nav-link{ href: "#reply-index", "data-toggle": "tab"}
+        リプライ
+    %li.nav-item
+      %a.nav-link{ href: "#like-index", "data-toggle": "tab"}
+        いいね
+        #{@liking_users.count.to_s}
+    %li.nav-item
+      %a.nav-link{ href: "#retweet-index", "data-toggle": "tab"}
+        リツイート
 
-= link_to root_path do
-  .btn.btn-default.glyphicon.glyphicon-heart
-= link_to root_path do
-  .btn.btn-default.glyphicon.glyphicon-retweet
+  .tab-content
+    #reply-index.tab-pane.active
+      実装予定
+    #like-index.tab-pane
+      - @liking_users.each do |user|
+        = link_to user_path(user) do
+          %h4.tweets-nickname= user.nickname
+          %h5.tweets-username= "@" + user.username
+          .clear
+    #retweet-index.tab-pane
+      実装予定
 
-.btn-group
-  - if @tweet.user.id == current_user.id
-    = link_to '編集', edit_tweet_path(@tweet), class: "btn btn-default"
-    = link_to '削除', @tweet, method: :delete, class: "btn btn-default", data: { confirm: 'このツイートを本当に削除しますか?' }
-  = link_to 'Back', tweets_path, class: "btn btn-default"

@@ -1,5 +1,5 @@
 %footer
-  .footer-content
+  .footer-content.container
     - if current_user
       = link_to tweets_path do
         .btn.btn-default.glyphicon.glyphicon-home
@@ -11,8 +11,8 @@
       .btn.btn-default.glyphicon.glyphicon-bell
         %br Notice
 
-      .btn.btn-default.glyphicon.glyphicon-envelope
-        %br Message
+      .btn.btn-default.glyphicon.glyphicon-stats
+        %br Stats
 
       = link_to user_path(current_user) do
         .btn.btn-default.glyphicon.glyphicon-user
