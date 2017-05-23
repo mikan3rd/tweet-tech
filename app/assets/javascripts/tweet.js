@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
   });
 
 // モーダルの非表示
-  $('#close-modal').click(function() {
+  $('.close-modal').click(function() {
     $('#apply-modal').fadeOut(500);
   });
 
