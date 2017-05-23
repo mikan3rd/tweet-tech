@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :new_tweet
 
   def show
     @user = User.find(params[:id])
@@ -18,5 +19,9 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def new_tweet
+    @new_tweet = Tweet.new
+  end
 
 end

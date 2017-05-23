@@ -6,4 +6,5 @@
       .btn.btn-default.glyphicon.glyphicon-edit
     %h1.title TECH::TWEET
 
-= render 'tweet_modal', tweet: @tweet
+-if current_user
+  = render 'tweets/tweet_modal', tweet: @new_tweet

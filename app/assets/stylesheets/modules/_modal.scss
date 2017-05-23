@@ -29,3 +29,9 @@
   cursor: pointer;
   font-size: 30px;
 }
+
+.tweet-field {
+  width: calc(100vw - 200px);
+  height: calc(50vh);
+  border: 1px solid #d0d5d8;
+}
