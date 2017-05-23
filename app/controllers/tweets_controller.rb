@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
   # GET /tweets.json
   def index
     @tweets = Tweet.order(created_at: :DESC)
+    @tweet = Tweet.new
   end
 
   # GET /tweets/1
@@ -17,7 +18,6 @@ class TweetsController < ApplicationController
 
   # GET /tweets/new
   def new
-    @tweet = Tweet.new
   end
 
   # GET /tweets/1/edit

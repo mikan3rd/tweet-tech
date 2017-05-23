@@ -17,6 +17,9 @@ body {
   border-bottom: solid 0.1px $light-gray;
   display: block;
   text-align: left;
+  &:hover {
+    background-color: #f5f8fa;
+  }
 }
 
 .tweets-nickname {
