@@ -4,7 +4,7 @@ body {
 }
 
 .body-wrapper {
-  background-color: white;
+  background-color: #f5f8fa;
   height: calc(100vh - 100px);
   width: 100vw;
   overflow: auto;
@@ -15,8 +15,10 @@ body {
 
 .tweets-wrapper {
   border-bottom: solid 0.1px $light-gray;
+  width: 588px;
   display: block;
   text-align: left;
+  background-color: white;
   &:hover {
     background-color: #f5f8fa;
   }
