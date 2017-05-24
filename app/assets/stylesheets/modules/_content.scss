@@ -5,12 +5,11 @@ body {
 
 .body-wrapper {
   background-color: #f5f8fa;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 48px);
   width: 100vw;
   overflow: auto;
   position: absolute;
-  top: 50px;
-  bottom: 50px;
+  top: 48px;
 }
 
 .tweets-wrapper {
