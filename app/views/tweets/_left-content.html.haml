@@ -4,9 +4,20 @@
     .left-body
       .left-photo
         .glyphicon.glyphicon-camera
-      .left-user
-        .left-user-nickname
-          = current_user.nickname
-        .left-user-username
-          = "@" + current_user.username
+      =link_to user_path(current_user) do
+        .left-user
+          %h4.left-user-nickname
+            = current_user.nickname
+          %h5.left-user-username
+            = "@" + current_user.username
       .left-tweet
+        %ul
+          %li
+            %p ツイート
+            %p.left-number #{@tweets.count.to_s}
+          %li
+            %p フォロー
+            %p.left-number 1000
+          %li
+            %p フォロワー
+            %p.left-number 1000

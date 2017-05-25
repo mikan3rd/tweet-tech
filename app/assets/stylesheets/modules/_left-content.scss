@@ -20,6 +20,7 @@
 }
 
 .left-body {
+  height: 130px;
 }
 
 .left-photo {
@@ -42,11 +43,36 @@
   font-size: 30px;
   position: absolute;
   top: 15px;
-  left: 15px;
+  left: 18px;
 }
 
 .left-user {
+  position: absolute;
+  top: 105px;
+  left: 100px;
+  color: black;
 }
 
-.left-tweet {
+.left-user-username {
+  margin-top: -7px;
+  color: $light-gray;
+}
+
+.left-tweet ul {
+  margin-top: -5px;
+}
+
+.left-tweet li{
+  float: left;
+  margin: 3px 0 0 30px;
+  display: block;
+  color: $light-gray;
+  font-weight: 0;
+}
+
+.left-number {
+  margin-top: -8px;
+  color: red;
+  font-size: 18px;
+  font-weight: 500;
 }
