@@ -10,14 +10,24 @@ body {
   overflow: auto;
   position: absolute;
   top: 48px;
+  padding: 10px;
 }
 
 .tweets-wrapper {
-  border-bottom: solid 0.1px $light-gray;
-  width: 588px;
+  float: left;
+  margin: 0 10px;
+  border: solid 1px #e6ecf0;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.tweet-wrapper {
+  margin-left: 0 10px;
+  padding: 20px;
+  width: 590px;
   display: block;
   text-align: left;
-  background-color: white;
+  border-bottom: solid 1px #e6ecf0;
   &:hover {
     background-color: #f5f8fa;
   }

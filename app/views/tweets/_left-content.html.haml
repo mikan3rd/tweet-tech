@@ -1,0 +1,12 @@
+.left-content
+  .left-profile
+    .left-cover
+    .left-body
+      .left-photo
+        .glyphicon.glyphicon-camera
+      .left-user
+        .left-user-nickname
+          = current_user.nickname
+        .left-user-username
+          = "@" + current_user.username
+      .left-tweet

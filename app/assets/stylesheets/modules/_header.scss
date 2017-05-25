@@ -33,6 +33,9 @@ header {
 .nav-left li {
   float: left;
   color: #66757f;
+  &:hover {
+    color: red;
+  }
 }
 
 .nav-right {

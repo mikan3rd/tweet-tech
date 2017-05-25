@@ -21,14 +21,5 @@
               %li.glyphicon.glyphicon-user.btn
             %li.btn.btn-default.glyphicon.glyphicon-edit
 
-
-
-        / =link_to information_users_path do
-        /   .btn.btn-default.glyphicon.glyphicon-info-sign
-        / .btn.btn-default.glyphicon.glyphicon-edit
-
-
-
-
 -if current_user
   = render 'tweets/tweet_modal', tweet: @new_tweet
