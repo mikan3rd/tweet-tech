@@ -45,6 +45,8 @@
     #follower-index.tab-pane
       - @user.followers.each do |user|
         = link_to user_path(user) do
-          %h4.tweets-nickname= user.nickname
-          %h5.tweets-username= "@" + user.username
+          %h4.tweets-nickname
+            = user.nickname
+          %h5.tweets-username
+            = "@" + user.username
           .clear
