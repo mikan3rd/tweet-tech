@@ -4,6 +4,9 @@
       .fa.fa-twitter
       -if current_user
         %ul.nav-left
+          = link_to global_tweets_path do
+            %li.head-btn.btn-default.glyphicon.glyphicon-globe
+              グローバル
           = link_to tweets_path do
             %li.head-btn.btn-default.glyphicon.glyphicon-home
               ホーム

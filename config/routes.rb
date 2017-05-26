@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     member do
       get :liking_users
     end
+    collection do
+      get :global
+    end
   end
 
   resources :users, only: [:show] do
@@ -14,7 +17,7 @@ Rails.application.routes.draw do
       get :followers
     end
     collection do
-      get 'search'
+      get :search
     end
   end
 

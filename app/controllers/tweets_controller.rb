@@ -65,6 +65,12 @@ class TweetsController < ApplicationController
     end
   end
 
+  def global
+    @tweets = Tweet.order(created_at: :DESC)
+    @new_tweet = Tweet.new
+    render :index
+  end
+
   private
 
     def set_tweet
