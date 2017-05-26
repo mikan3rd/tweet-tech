@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    @user = Relationship.find(params[:user_id]).following
+    @user = User.find(params[:user_id])
     current_user.unfollow!(@user)
     redirect_to @user, notice: "アンフォローしました"
   end
