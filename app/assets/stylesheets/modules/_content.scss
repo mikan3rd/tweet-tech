@@ -67,6 +67,15 @@ body {
 
 .glyphicon-heart {
   color: red;
+  &:hover {
+    color: red;
+  }
+}
+
+.glyphicon-heart-empty {
+  &:hover {
+    color: red;
+  }
 }
 
 .clear {

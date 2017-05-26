@@ -8,6 +8,9 @@
   border: 1px solid #e6ecf0;
   background: #fff;
   border-radius: 10px;
+  &:hover {
+    box-shadow:0px 0px 10px #FF9999;
+  }
 }
 
 .left-cover {
