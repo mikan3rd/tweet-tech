@@ -22,10 +22,10 @@ body {
 }
 
 .tweet-wrapper {
+  display: block;
   margin-left: 0 10px;
   padding: 20px;
   width: 590px;
-  display: block;
   text-align: left;
   border-bottom: solid 1px #e6ecf0;
   &:hover {
