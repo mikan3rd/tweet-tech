@@ -11,6 +11,7 @@ class TweetsController < ApplicationController
     # users = User.where(id: ids)
     @tweets = Tweet.where(user_id: ids).order(created_at: :DESC)
     @new_tweet = Tweet.new
+    @global = false
   end
 
   # GET /tweets/1
@@ -69,6 +70,7 @@ class TweetsController < ApplicationController
   end
 
   def global
+    @global = true
     @tweets = Tweet.order(created_at: :DESC)
     @new_tweet = Tweet.new
     render :index

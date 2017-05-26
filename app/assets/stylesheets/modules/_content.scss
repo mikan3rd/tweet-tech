@@ -33,6 +33,10 @@ body {
   }
 }
 
+.tweet-follow {
+  float: right;
+}
+
 .tweets-nickname {
   float: left;
   color: black;
@@ -67,9 +71,6 @@ body {
 
 .glyphicon-heart {
   color: red;
-  &:hover {
-    color: red;
-  }
 }
 
 .glyphicon-heart-empty {
