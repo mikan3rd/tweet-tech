@@ -1,0 +1,5 @@
+- if current_user.id != @user.id
+  - if current_user.following?(@user)
+    = link_to "フォロー中", unfollow_path(@user), method: :delete, class: "btn btn-default"
+  - else
+    = link_to "フォローする", follow_path(@user), method: :post, class: "btn btn-default"
