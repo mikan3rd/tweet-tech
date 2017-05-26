@@ -4,8 +4,10 @@
 
   - if @user.id == current_user.id
     = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default"
-    %br
-    %br
+
+  = render 'users/follow', user: @user
+  %br
+  %br
 
   = "いいねされた総数：" + @liked.to_s
   %br
@@ -20,9 +22,31 @@
       %a.nav-link{ href: "#like-index", "data-toggle": "tab"}
         いいね
         #{@user.likes.count.to_s}
+    %li.nav-item
+      %a.nav-link{ href: "#follow-index", "data-toggle": "tab"}
+        フォロー
+        #{@user.followings.count.to_s}
+    %li.nav-item
+      %a.nav-link{ href: "#follower-index", "data-toggle": "tab"}
+        フォロワー
+        #{@user.followers.count.to_s}
 
   .tab-content
     #tweet-index.tab-pane.active
       = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
     #like-index.tab-pane
       = render partial: 'tweets/tweets', collection: @like_tweets, as: :tweet
+    #follow-index.tab-pane
+      - @user.followings.each do |user|
+        = link_to user_path(user) do
+          %h4.tweets-nickname= user.nickname
+          %h5.tweets-username= "@" + user.username
+          .clear
+    #follower-index.tab-pane
+      - @user.followers.each do |user|
+        = link_to user_path(user) do
+          %h4.tweets-nickname
+            = user.nickname
+          %h5.tweets-username
+            = "@" + user.username
+          .clear

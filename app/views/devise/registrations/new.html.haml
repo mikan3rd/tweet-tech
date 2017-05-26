@@ -1,35 +1,46 @@
-%h2.login-title TECH::TWEETを使ってみよう
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :nickname, value: "ニックネーム", class: "login-label"
-    %p.login-p 同じニックネームが既に使われている場合は登録できません
-    = f.text_field :nickname, autofocus: true, class: "login-field"
+#account-page.account-page
+  .account-page__inner.clearfix
+    .account-page__inner--left.account-page__header
+      %h2 Twitter
+      %h5 新規アカウントの作成
+    .account-page__inner--right.user-form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .field
+          .field-label
+            = f.label :nickname, value: "ニックネーム"
+            %p.login-p 同じニックネームが既に使われている場合は登録できません
+          .field-input
+            = f.text_field :nickname, autofocus: true
 
-  .field
-    = f.label :username, value: "ユーザーネーム", class: "login-label"
-    %p.login-p 半角英数字、ハイフン( - )、アンダーバー( _ )のみ使用可能です
-    = f.text_field :username, autofocus: true, class: "login-field"
+        .field
+          .field-label
+            = f.label :username, value: "ユーザーネーム"
+            %p.login-p 半角英数字、ハイフン( - )、アンダーバー( _ )のみ使用可能です
+          .field-input
+            = f.text_field :username, autofocus: true
 
-  .field
-    = f.label :email, class: "login-label"
-    = f.email_field :email, autofocus: true, class: "login-field"
+        .field
+          .field-label
+            = f.label :email, class: "login-label"
+          .field-input
+            = f.email_field :email, autofocus: true
 
 
-  .field
-    = f.label :password, class: "login-label"
-    - if @minimum_password_length
-      %p.login-p パスワードは#{@minimum_password_length}文字以上にしてください
-      = f.password_field :password, autocomplete: "off", class: "login-field"
+        .field
+          .field-label
+            = f.label :password, class: "login-label"
+            - if @minimum_password_length
+              %p.login-p パスワードは#{@minimum_password_length}文字以上にしてください
+          .field-input
+            = f.password_field :password, autocomplete: "off"
 
-  .field
-    = f.label :password_confirmation, class: "login-label"
-    = f.password_field :password_confirmation, autocomplete: "off", class: "login-field"
+        .field
+          .field-label
+            = f.label :password_confirmation
+          .field-input
+            = f.password_field :password_confirmation, autocomplete: "off"
+        .actions
+          = f.submit "Create Account", class: 'btn'
 
-  .actions
-    = f.submit "アカウント作成", class: "btn btn-default login-btn"
-%br
-%br
-%p アカウントをお持ちの場合
-= render "devise/shared/links"
-
+    = render "devise/shared/links"

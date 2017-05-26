@@ -6,8 +6,12 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.order(created_at: :DESC)
+    ids = current_user.followings.ids
+    ids << current_user.id
+    # users = User.where(id: ids)
+    @tweets = Tweet.where(user_id: ids).order(created_at: :DESC)
     @new_tweet = Tweet.new
+    @global = false
   end
 
   # GET /tweets/1
@@ -63,6 +67,13 @@ class TweetsController < ApplicationController
       format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def global
+    @global = true
+    @tweets = Tweet.order(created_at: :DESC)
+    @new_tweet = Tweet.new
+    render :index
   end
 
   private

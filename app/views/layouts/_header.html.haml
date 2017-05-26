@@ -1,10 +1,27 @@
 %header
-  .header-wrapper.container
-    -if current_user
-      =link_to information_users_path do
-        .btn.btn-default.glyphicon.glyphicon-info-sign
-      .btn.btn-default.glyphicon.glyphicon-edit
-    %h1.title TECH::TWEET
+  .header-wrapper
+    .container
+      .fa.fa-twitter
+      -if current_user
+        %ul.nav-left
+          = link_to global_tweets_path do
+            %li.head-btn.btn-default.glyphicon.glyphicon-globe
+              グローバル
+          = link_to tweets_path do
+            %li.head-btn.btn-default.glyphicon.glyphicon-home
+              ホーム
+          %li.head-btn.btn-default.glyphicon.glyphicon-stats
+            モーメント
+          %li.head-btn.btn-default.glyphicon.glyphicon-bell
+            通知
+        .nav-right
+          %input.right-btn-input{ placeholder: "キーワード検索"}
+            .glyphicon.glyphicon-search
+          }
+          %ul.right-btn
+            = link_to user_path(current_user) do
+              %li.glyphicon.glyphicon-user.btn
+            %li.btn.btn-default.glyphicon.glyphicon-edit
 
 -if current_user
   = render 'tweets/tweet_modal', tweet: @new_tweet

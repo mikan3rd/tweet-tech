@@ -12,10 +12,19 @@ class UsersController < ApplicationController
     end
   end
 
-  def search
+  def follow
+    @user = User.find(params[:user_id])
+    current_user.follow!(@user)
+    redirect_to :back, notice: "フォローしました"
   end
 
-  def information
+  def unfollow
+    @user = User.find(params[:user_id])
+    current_user.unfollow!(@user)
+    redirect_to :back, notice: "アンフォローしました"
+  end
+
+  def search
   end
 
   private

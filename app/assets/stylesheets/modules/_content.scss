@@ -4,22 +4,37 @@ body {
 }
 
 .body-wrapper {
-  background-color: white;
-  height: calc(100vh - 100px);
+  background-color: #f5f8fa;
+  height: calc(100vh - 48px);
   width: 100vw;
   overflow: auto;
   position: absolute;
-  top: 50px;
-  bottom: 50px;
+  top: 48px;
+  padding: 10px;
 }
 
 .tweets-wrapper {
-  border-bottom: solid 0.1px $light-gray;
+  float: left;
+  margin: 0 10px;
+  border: solid 1px #e6ecf0;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.tweet-wrapper {
   display: block;
+  margin-left: 0 10px;
+  padding: 20px;
+  width: 590px;
   text-align: left;
+  border-bottom: solid 1px #e6ecf0;
   &:hover {
     background-color: #f5f8fa;
   }
+}
+
+.tweet-follow {
+  float: right;
 }
 
 .tweets-nickname {
@@ -46,11 +61,22 @@ body {
 .btn-group {
 }
 
+.like-link {
+  float: left;
+}
+
 .glyphicon {
+  margin: 2px;
 }
 
 .glyphicon-heart {
   color: red;
+}
+
+.glyphicon-heart-empty {
+  &:hover {
+    color: red;
+  }
 }
 
 .clear {
