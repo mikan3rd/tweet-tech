@@ -23,5 +23,5 @@
               %li.glyphicon.glyphicon-user.btn
             %li.btn.btn-default.glyphicon.glyphicon-edit
 
--if current_user
+-if @new_tweet
   = render 'tweets/tweet_modal', tweet: @new_tweet

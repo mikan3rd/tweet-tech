@@ -1,8 +1,10 @@
 .mypage
   %h2= @user.nickname
   %h3= "@" + @user.username
+  %h5= @user.introduction
 
   - if @user.id == current_user.id
+    = link_to '設定', edit_user_registration_path, class: "btn btn-default"
     = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default"
 
   = render 'users/follow', user: @user

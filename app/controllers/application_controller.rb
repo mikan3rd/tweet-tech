@@ -9,11 +9,15 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  def after_update_path_for(resource)
+    edit_user_registration_path
+  end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :username])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:ninkname, :username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :username, :introduction, :icon, :wallpaper])
   end
 
 end
