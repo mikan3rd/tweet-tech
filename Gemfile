@@ -12,6 +12,10 @@ gem 'erb2haml'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'pry-rails'
+gem 'carrierwave'
+gem 'carrierwave'
+gem 'dotenv'
+gem 'mini_magick'
 
 
 group :production do
