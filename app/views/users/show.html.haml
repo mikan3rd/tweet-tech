@@ -1,6 +1,8 @@
 .mypage
+  - if @user.wallpaper.present?
+    = image_tag(@user.wallpaper.thumb.url, class: "mypage-wallpaper")
   - if @user.icon.present?
-    = image_tag(@user.icon.thumb.url)
+    = image_tag(@user.icon.url, class: "mypage-icon")
   %h2= @user.nickname
   %h3= "@" + @user.username
   %h5= @user.introduction
