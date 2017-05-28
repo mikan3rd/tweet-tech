@@ -1,19 +1,26 @@
 .tweet-wrapper
+
   - if @global == true
     .tweet-follow
       = render 'users/follow', user: tweet.user
+
+  - if tweet.user.icon.present?
+    = image_tag(tweet.user.icon.thumb.url, class: "tweet-icon")
+
   %object.tweets-nickname
-    = link_to user_path(tweet.user) do
-      %h4
-        = "#{tweet.user.nickname}"
+    %h4
+      = "#{tweet.user.nickname}"
   %object.tweets-username
-    = link_to user_path(tweet.user) do
-      %h5
-        = "@" + "#{tweet.user.username}"
-  %p.tweets-content= tweet.content
+    %h5
+      = "@" + "#{tweet.user.username}"
+
+
   %p.tweets-content
+    = tweet.content
+
+  .tweets-image
     - if tweet.image.present?
-      = image_tag(tweet.image.url)
+      = image_tag(tweet.image.gallery.url, class: "tweet-image-border")
   %h5.tweets-time
     = tweet.created_at.strftime("%Y/%m/%d %H時%M分")
 

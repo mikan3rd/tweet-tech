@@ -33,6 +33,12 @@ body {
   }
 }
 
+.tweet-icon {
+  border-radius:5px;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
 .tweet-follow {
   float: right;
 }
@@ -44,14 +50,23 @@ body {
 
 .tweets-username {
   float: left;
-  line-height: 18px;
+  line-height: 16px;
   color: $light-gray;
   padding-left: 5px;
 }
 
 .tweets-content {
+  font-size: 18px;
   clear: both;
   color: black;
+}
+
+.tweety-image {
+  margin: 0px;
+}
+
+.tweet-image-border {
+  border-radius: 10px;
 }
 
 .tweets-time {

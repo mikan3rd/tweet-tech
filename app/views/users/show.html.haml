@@ -1,4 +1,6 @@
 .mypage
+  - if @user.icon.present?
+    = image_tag(@user.icon.thumb.url)
   %h2= @user.nickname
   %h3= "@" + @user.username
   %h5= @user.introduction
@@ -35,9 +37,11 @@
 
   .tab-content
     #tweet-index.tab-pane.active
-      = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
+      .tweets-wrapper
+        = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
     #like-index.tab-pane
-      = render partial: 'tweets/tweets', collection: @like_tweets, as: :tweet
+      .tweets-wrapper
+        = render partial: 'tweets/tweets', collection: @like_tweets, as: :tweet
     #follow-index.tab-pane
       - @user.followings.each do |user|
         = link_to user_path(user) do

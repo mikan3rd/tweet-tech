@@ -18,6 +18,12 @@
 
         .field
           .field-label
+            = f.label :icon, value: "アイコン画像"
+          .field-input
+            = f.file_field :icon, autofocus: true
+
+        .field
+          .field-label
             = f.label :nickname, value: "ニックネーム"
             %p.login-p 同じニックネームが既に使われている場合は登録できません
           .field-input
