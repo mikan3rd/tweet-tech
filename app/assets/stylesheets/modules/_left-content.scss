@@ -33,11 +33,17 @@
   border: 2px solid #fff;
   color: #fff;
   background-color: red;
-  border-radius: 6px;
   margin: -30px 0 0 8px;
   padding: 1px;
   vertical-align: bottom;
   position: relative;
+}
+
+.left-photo-icon {
+  border-radius: 7px;
+  height: 72px;
+  width: 72px;
+  margin: -3px 0 0 -3px;
 }
 
 .glyphicon-camera {

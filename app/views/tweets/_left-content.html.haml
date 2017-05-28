@@ -4,7 +4,10 @@
       .left-cover
       .left-body
         .left-photo
-          .glyphicon.glyphicon-camera
+          - if current_user.icon.present?
+            = image_tag(current_user.icon.thumb.url, class: "left-photo-icon")
+          - else
+            .glyphicon.glyphicon-camera
         .left-user
           %h4.left-user-nickname
             = current_user.nickname
