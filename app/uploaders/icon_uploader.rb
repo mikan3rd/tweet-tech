@@ -7,7 +7,7 @@ class IconUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [200, 200]
 
   version :thumb do
-    process resize_to_limit: [100, 100]
+    process resize_to_fit: [100, 100]
   end
 
   # Choose what kind of storage to use for this uploader:

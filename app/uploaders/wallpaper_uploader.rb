@@ -4,7 +4,7 @@ class WallpaperUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process resize_to_limit: [550, 500]
+
 
   # Choose what kind of storage to use for this uploader:
   # storage :file

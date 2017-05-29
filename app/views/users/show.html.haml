@@ -1,8 +1,15 @@
-.mypage
+.wallpaper
   - if @user.wallpaper.present?
-    = image_tag(@user.wallpaper.thumb.url, class: "mypage-wallpaper")
-  - if @user.icon.present?
-    = image_tag(@user.icon.url, class: "mypage-icon")
+    = image_tag(@user.wallpaper.url, class: "mypage-wallpaper")
+  - else
+    .mypage-wallpaper
+
+- if @user.icon.present?
+  = image_tag(@user.icon.url, class: "mypage-icon")
+- else
+  .mypage-icon アイコンを設定してください
+
+.mypage
   %h2= @user.nickname
   %h3= "@" + @user.username
   %h5= @user.introduction
@@ -37,7 +44,7 @@
         フォロワー
         #{@user.followers.count.to_s}
 
-  .tab-content
+  .tab-content.tab-content-mypage
     #tweet-index.tab-pane.active
       .tweets-wrapper
         = render partial: 'tweets/tweets', collection: @tweets, as: :tweet

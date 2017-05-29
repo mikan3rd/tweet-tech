@@ -1,13 +1,18 @@
 .left-content
   =link_to user_path(current_user) do
     .left-profile
-      .left-cover
+      - if current_user.wallpaper.present?
+        = image_tag(current_user.wallpaper.url, class: "left-cover")
+      - else
+        .left-cover
+
       .left-body
         .left-photo
           - if current_user.icon.present?
             = image_tag(current_user.icon.thumb.url, class: "left-photo-icon")
           - else
             .glyphicon.glyphicon-camera
+
         .left-user
           %h4.left-user-nickname
             = current_user.nickname

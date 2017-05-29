@@ -20,7 +20,13 @@
           .field-label
             = f.label :icon, value: "アイコン画像"
           .field-input
-            = f.file_field :icon, autofocus: true
+            = f.file_field :icon
+
+        .field
+          .field-label
+            = f.label :wallpaper, value: "壁紙画像"
+          .field-input
+            = f.file_field :wallpaper
 
         .field
           .field-label
