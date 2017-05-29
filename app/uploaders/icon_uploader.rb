@@ -4,7 +4,7 @@ class IconUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process resize_to_limit: [200, 200]
+  process resize_to_fit: [200, 200]
 
   version :thumb do
     process resize_to_fit: [100, 100]
