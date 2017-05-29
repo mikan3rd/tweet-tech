@@ -10,12 +10,11 @@ body {
   overflow: auto;
   position: absolute;
   top: 48px;
-  padding: 10px;
 }
 
 .tweets-wrapper {
   float: left;
-  margin: 0 10px;
+  margin: 10px 10px;
   border: solid 1px #e6ecf0;
   border-radius: 10px;
   background-color: white;
@@ -33,6 +32,14 @@ body {
   }
 }
 
+.tweet-icon {
+  border-radius:5px;
+  float: left;
+  margin: 0 10px 10px 0;
+  height: 50px;
+  width: 50px;
+}
+
 .tweet-follow {
   float: right;
 }
@@ -44,14 +51,23 @@ body {
 
 .tweets-username {
   float: left;
-  line-height: 18px;
+  line-height: 16px;
   color: $light-gray;
   padding-left: 5px;
 }
 
 .tweets-content {
+  font-size: 18px;
   clear: both;
   color: black;
+}
+
+.tweet-image {
+  margin: 0px;
+}
+
+.tweet-image-border {
+  border-radius: 10px;
 }
 
 .tweets-time {

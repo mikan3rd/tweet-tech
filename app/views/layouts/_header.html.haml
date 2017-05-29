@@ -10,18 +10,17 @@
           = link_to tweets_path do
             %li.head-btn.btn-default.glyphicon.glyphicon-home
               ホーム
-          %li.head-btn.btn-default.glyphicon.glyphicon-stats
-            モーメント
-          %li.head-btn.btn-default.glyphicon.glyphicon-bell
-            通知
+          / %li.head-btn.btn-default.glyphicon.glyphicon-stats
+          /   モーメント
+          / %li.head-btn.btn-default.glyphicon.glyphicon-bell
+          /   通知
         .nav-right
           %input.right-btn-input{ placeholder: "キーワード検索"}
             .glyphicon.glyphicon-search
-          }
           %ul.right-btn
             = link_to user_path(current_user) do
               %li.glyphicon.glyphicon-user.btn
             %li.btn.btn-default.glyphicon.glyphicon-edit
 
--if current_user
+-if @new_tweet
   = render 'tweets/tweet_modal', tweet: @new_tweet

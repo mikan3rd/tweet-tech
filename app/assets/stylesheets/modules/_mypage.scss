@@ -1,0 +1,34 @@
+.mypage-wallpaper {
+  width: 100%;
+  height: 175px;
+  background-color: rgba(29, 161,242, 0.5);
+}
+
+.mypage-icon {
+  border-radius: 8px;
+  margin: -120px 0 10px 30px;
+  width: 200px;
+  height: 200px;
+  box-sizing: border-box;
+  border: solid 5px white;
+  background-color: $blue;
+  text-align: center;
+  color: white;
+  line-height: 200px;
+  box-shadow:0px 0px 10px;
+  position: relative;
+  z-index: 100;
+}
+
+.mypage {
+  padding: 5px 0 0 35px;
+  margin-top: -30px;
+}
+
+.mypage ul {
+  margin: -280px 0  0 250px;
+}
+
+.tab-content-mypage {
+  margin: 0px 0  0 240px;
+}

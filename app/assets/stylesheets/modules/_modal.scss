@@ -12,11 +12,11 @@
 .modal {
   position: absolute;
   margin: auto;
-  background-color: #e6ecf0;
+  background-color: rgba(229, 241, 255, 1);
   padding: 20px 0 40px;
   border-radius: 10px;
-  width: calc(100vw - 100px);
-  height: 500px;
+  width: 590px;
+  height: 213px;
   text-align: center;
   display: block;
 }
@@ -31,9 +31,23 @@
 }
 
 .tweet-field {
-  width: calc(100vw - 200px);
-  height: calc(50vh);
-  border: 1px solid #d0d5d8;
+  width: 538px;
+  height: 80px;
+  border: 1px solid $blue;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.actions-tweet {
+  position: relative;
+}
+
+.tweet-image {
+  margin: 5px 0 0 30px;
+}
+
+.tweet-btn {
+  margin: -70px 0 0 470px;
 }
 
 .follow-btn {

@@ -1,47 +1,75 @@
-%h2
-  ユーザー情報
-/ %h2
-/   #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :nickname, value: "ニックネーム"
-    = f.text_field :nickname, autofocus: true
-
-  .field
-    = f.label :username, value: "ユーザーネーム"
-    = f.text_field :username, placeholder: "英数字のみ", autofocus: true
-  .field
-    = f.label :email
-    = f.email_field :email, autofocus: true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-
-  .field
-    = f.label :current_password, value: "現在のパスワード"
-    = f.password_field :current_password, autocomplete: "off"
-
-  .field
-    = f.label :password, value: "新しいパスワード"
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-    - if @minimum_password_length
+#account-page.account-page
+  .account-page__inner.clearfix
+    .account-page__inner--left.account-page__header
+      %h2 Twitter
+      %h5 アカウントの編集
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+      = link_to "トップページに戻る", root_path, class: 'btn'
+      %br
+      %br
+      %br
+      %h5 アカウントの削除
+      #{button_to "アカウントを削除する", registration_path(resource_name), class: "btn btn-default", data: { confirm: "本当に削除してよろしいですか?" }, method: :delete}
       %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation, value: "新しいパスワードの確認"
-    = f.password_field :password_confirmation, autocomplete: "off"
 
-  .actions
-    = f.submit "変更を保存"
-%br/
+    .account-page__inner--right.user-form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
 
-%h3 アカウントの削除
-#{button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか?" }, method: :delete}
-%br/
+        .field
+          .field-label
+            = f.label :icon, value: "アイコン画像"
+          .field-input
+            = f.file_field :icon
 
-= link_to "Back", :back
+        .field
+          .field-label
+            = f.label :wallpaper, value: "壁紙画像"
+          .field-input
+            = f.file_field :wallpaper
+
+        .field
+          .field-label
+            = f.label :nickname, value: "ニックネーム"
+            %p.login-p 同じニックネームが既に使われている場合は登録できません
+          .field-input
+            = f.text_field :nickname, autofocus: true
+
+        .field
+          .field-label
+            = f.label :username, value: "ユーザーネーム"
+            %p.login-p 半角英数字、ハイフン( - )、アンダーバー( _ )のみ使用可能です
+          .field-input
+            = f.text_field :username, autofocus: true
+
+        .field
+          .field-label
+            = f.label :introduction, value: "自己紹介"
+          .field-input
+            = f.text_field :introduction, autofocus: true
+
+        .field
+          .field-label
+            = f.label :email
+          .field-input
+            = f.email_field :email
+        .field
+          .field-label
+            = f.label :current_password, value: "現在のパスワード"
+            %i (必須)
+          .field-input
+            = f.password_field :current_password, autocomplete: "off"
+        .field
+          .field-label
+            = f.label :password, value: "新しいパスワード"
+            %i (変更しない場合は空白)
+          .field-input
+            = f.password_field :password, autocomplete: "off"
+        .field
+          .field-label
+            = f.label :password_confirmation, value: "新しいパスワードの確認"
+            %i (変更しない場合は空白)
+          .field-input
+            = f.password_field :password_confirmation, autocomplete: "off"
+        .actions
+          = f.submit "Update", class: 'btn'

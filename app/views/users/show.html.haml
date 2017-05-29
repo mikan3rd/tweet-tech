@@ -1,8 +1,21 @@
+.wallpaper
+  - if @user.wallpaper.present?
+    = image_tag(@user.wallpaper.url, class: "mypage-wallpaper")
+  - else
+    .mypage-wallpaper
+
+- if @user.icon.present?
+  = image_tag(@user.icon.url, class: "mypage-icon")
+- else
+  .mypage-icon アイコンを設定してください
+
 .mypage
   %h2= @user.nickname
   %h3= "@" + @user.username
+  %h5= @user.introduction
 
   - if @user.id == current_user.id
+    = link_to '設定', edit_user_registration_path, class: "btn btn-default"
     = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default"
 
   = render 'users/follow', user: @user
@@ -31,11 +44,13 @@
         フォロワー
         #{@user.followers.count.to_s}
 
-  .tab-content
+  .tab-content.tab-content-mypage
     #tweet-index.tab-pane.active
-      = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
+      .tweets-wrapper
+        = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
     #like-index.tab-pane
-      = render partial: 'tweets/tweets', collection: @like_tweets, as: :tweet
+      .tweets-wrapper
+        = render partial: 'tweets/tweets', collection: @like_tweets, as: :tweet
     #follow-index.tab-pane
       - @user.followings.each do |user|
         = link_to user_path(user) do
