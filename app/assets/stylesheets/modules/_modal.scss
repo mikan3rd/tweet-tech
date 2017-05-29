@@ -48,6 +48,8 @@
 
 .tweet-btn {
   margin: -70px 0 0 470px;
+  position: relative;
+  z-index: 200;
 }
 
 .follow-btn {
