@@ -1,12 +1,24 @@
 $(document).on('turbolinks:load', function() {
 
   function buildHTML(data, i) {
+    var Week = new Array("（日）","（月）","（火）","（水）","（木）","（金）","（土）");
+    var date = new Date (data.list[i].dt_txt);
+    var month = date.getMonth()+1;
+    date.setHours(date.getHours() + 9);
+    var day = month + "月" + date.getDate() + "日" + Week[date.getDay()] + date.getHours() + "：00";
+
     var icon = data.list[i].weather[0].icon;
-    console.log(icon);
+    var rain = "";
+    if (data.list[i].rain) {
+      rain = data.list[i].rain["3h"];
+    }
     var html =
-    '<div>' +
-      '<h3>'+ data.list[i].weather[0].main + '</h3>' +
-      '<img src="http://openweathermap.org/img/w/' + icon + '.png">'
+    '<div class="weather-report">' +
+      '<div class="weather-date">' + day + '</div>' +
+      '<img src="http://openweathermap.org/img/w/' + icon + '.png">' +
+      '<div>'+ data.list[i].weather[0].main + '</div>' +
+      '<div>' + Math.round(data.list[i].main.temp) + '℃</div>' +
+      '<div>' + rain + '</div>' +
     '</div>';
     return html
   }
@@ -24,7 +36,7 @@ $(document).on('turbolinks:load', function() {
   $(function() {
     var API_KEY = 'fda68f66e84fff8b5ffc4133f261f8a9'
     var city = 'Tokyo';
-    var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&APPID=' + API_KEY;
+    var url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',jp&units=metric&APPID=' + API_KEY;
     $.ajax({
       url: url,
       dataType: "json",
@@ -32,8 +44,9 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(data) {
       var insertHTML = "";
-      $('#city-name').text(data.city.name);
-      for (var i = 0; i <= 5; i++) {
+      var cityName = '<h2>' + data.city.name + '</h2>';
+      $('#city-name').html(cityName);
+      for (var i = 0; i <= 8; i = i + 2) {
         insertHTML += buildHTML(data, i);
       }
       $('#weather').html(insertHTML);
