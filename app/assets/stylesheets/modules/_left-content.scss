@@ -2,15 +2,16 @@
   float: left;
   width: 290px;
   display: block;
-  margin: 10px;
+  margin: 10px 10px 0 30px;
 }
 
 .left-profile {
   border: 1px solid #e6ecf0;
   background: #fff;
   border-radius: 10px;
+  margin: 0 0 20px 0;
   &:hover {
-    box-shadow:0px 0px 10px #FF9999;
+    box-shadow:0px 0px 10px $blue;
   }
 }
 
@@ -84,3 +85,5 @@
   font-size: 18px;
   font-weight: 500;
 }
+
+

@@ -11,10 +11,12 @@ module TweetTech
     config.active_record.default_timezone = :local
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
+
     config.generators do |g|
       g.javascripts false
       g.helper false
       g.test_framework false
     end
+
   end
 end

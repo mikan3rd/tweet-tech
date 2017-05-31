@@ -1,4 +1,5 @@
 .left-content
+
   =link_to user_path(current_user) do
     .left-profile
       - if current_user.wallpaper.present?
@@ -29,3 +30,8 @@
             %li
               %p フォロワー
               %p.left-number #{current_user.followers.count}
+
+  .left-weather
+    #test
+    #city-name
+    #weather
