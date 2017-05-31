@@ -6,19 +6,17 @@ $(document).on('turbolinks:load', function() {
     var month = date.getMonth()+1;
     date.setHours(date.getHours() + 9);
     var day = month + "月" + date.getDate() + "日" + Week[date.getDay()] + date.getHours() + "：00";
-
     var icon = data.list[i].weather[0].icon;
-    var rain = "";
-    if (data.list[i].rain) {
-      rain = data.list[i].rain["3h"];
-    }
+    // var rain = "";
+    // if (data.list[i].rain) {
+    //   rain = "降水量：" + Math.round(data.list[i].rain["3h"]) + "mm";
+    // }
     var html =
     '<div class="weather-report">' +
-      '<div class="weather-date">' + day + '</div>' +
       '<img src="http://openweathermap.org/img/w/' + icon + '.png">' +
-      '<div>'+ data.list[i].weather[0].main + '</div>' +
-      '<div>' + Math.round(data.list[i].main.temp) + '℃</div>' +
-      '<div>' + rain + '</div>' +
+      '<div class="weather-date">' + day + '</div>' +
+      '<div class="weather-main">'+ data.list[i].weather[0].main + '</div>' +
+      '<div class="weather-temp">' + Math.round(data.list[i].main.temp) + '℃</div>' +
     '</div>';
     return html
   }
