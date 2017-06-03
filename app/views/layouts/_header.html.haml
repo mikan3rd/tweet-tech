@@ -16,7 +16,8 @@
           /   通知
         .nav-right
           %input.right-btn-input{ placeholder: "キーワード検索"}
-            .glyphicon.glyphicon-search
+            = link_to search_users_path do
+              .glyphicon.glyphicon-search
           %ul.right-btn
             = link_to user_path(current_user) do
               %li.glyphicon.glyphicon-user.btn

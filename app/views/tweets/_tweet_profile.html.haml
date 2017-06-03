@@ -1,0 +1,13 @@
+- if @global == true
+  .tweet-follow
+    = render 'users/follow', user: tweet.user
+
+= link_to user_path(tweet.user) do
+  - if tweet.user.icon.present?
+    = image_tag(tweet.user.icon.thumb.url, class: "tweet-icon")
+  %object.tweets-nickname
+    %h4
+      = "#{tweet.user.nickname}"
+  %object.tweets-username
+    %h5
+      = "@" + "#{tweet.user.username}"
