@@ -1,0 +1,21 @@
+= render 'tweets/left-content'
+
+%ul.nav.nav-tabs.search-tabs-head
+  %li.nav-item
+    %a.nav-link{ href: "#like-index", "data-toggle": "tab"}
+      人気のツイート
+  %li.nav-item.active
+    %a.nav-link{ href: "#user-index", "data-toggle": "tab"}
+      ユーザー検索
+  %li.nav-item
+    %a.nav-link{ href: "#tweet-index", "data-toggle": "tab"}
+      ツイート検索
+
+.tab-content.search-tabs-content
+  #like-index.tab-pane
+    .tweets-wrapper
+      = render partial: 'tweets/tweets', collection: @tweets, as: :tweet
+  #user-index.tab-pane.active
+    テスト２
+  #tweet-index.tab-pane
+    テスト３

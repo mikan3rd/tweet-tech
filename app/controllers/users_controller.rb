@@ -25,6 +25,8 @@ class UsersController < ApplicationController
   end
 
   def search
+    tweet_ids = Like.group(:tweet_id).order('count_tweet_id DESC').limit(5).count(:tweet_id).keys
+    @tweets = tweet_ids.map { |id| Tweet.find(id) }
   end
 
   private
