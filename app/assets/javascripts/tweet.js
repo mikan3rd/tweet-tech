@@ -3,8 +3,8 @@ $(document).on('turbolinks:load', function() {
   function buildHTML(data, i) {
     var Week = new Array("（日）","（月）","（火）","（水）","（木）","（金）","（土）");
     var date = new Date (data.list[i].dt_txt);
-    var month = date.getMonth()+1;
     date.setHours(date.getHours() + 9);
+    var month = date.getMonth()+1;
     var day = month + "月" + date.getDate() + "日" + Week[date.getDay()] + date.getHours() + "：00";
     var icon = data.list[i].weather[0].icon;
     // var rain = "";
