@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
     collection do
       get :search
+      get :search_user
+      get :search_tweet
     end
   end
 

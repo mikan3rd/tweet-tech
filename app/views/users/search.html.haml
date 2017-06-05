@@ -15,7 +15,15 @@
   #like-index.tab-pane
     .tweets-wrapper
       = render partial: 'tweets/tweets', collection: @like_tweets, as: :tweet
+
   #user-index.tab-pane.active
-    テスト２
+    .search-box
+      %input#user-search{ class: "search-box-input",placeholder: "検索するユーザー名を入力してください", autocomplete: "off" }
+        .tweets-wrapper
+          #user-search-result
+
   #tweet-index.tab-pane
-    テスト３
+    .search-box
+      %input#tweet-search{ class: "search-box-input",placeholder: "検索するキーワードを入力してください", autocomplete: "off" }
+        .tweets-wrapper
+          #tweet-search-result

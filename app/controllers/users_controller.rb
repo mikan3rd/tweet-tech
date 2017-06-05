@@ -25,8 +25,22 @@ class UsersController < ApplicationController
   end
 
   def search
+    @global = true
     tweet_ids = Like.group(:tweet_id).order('count_tweet_id DESC').limit(10).count(:tweet_id).keys
     @like_tweets = tweet_ids.map { |id| Tweet.find(id) }
+  end
+
+  def search_user
+    @users_except_me = User.where.not(id: current_user.id)
+    @users = @users_except_me.where('nickname LIKE(?)', "%#{params[:user]}%")
+    render json: @users
+  end
+
+  def search_tweet
+    @tweets = Tweet.where('content LIKE(?)', "%#{params[:tweet]}%")
+    respond_to do |format|
+      format.json
+    end
   end
 
   private
