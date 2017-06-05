@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def search_tweet
-    @tweets = Tweet.where('content LIKE(?)', "%#{params[:tweet]}%")
+    @tweets = Tweet.where('content LIKE(?)', "%#{params[:tweet]}%").order(created_at: :desc)
     respond_to do |format|
       format.json
     end

@@ -8,7 +8,6 @@ class TweetsController < ApplicationController
   def index
     ids = current_user.followings.ids
     ids << current_user.id
-    # users = User.where(id: ids)
     @tweets = Tweet.where(user_id: ids).order(created_at: :DESC)
     @new_tweet = Tweet.new
     @global = false

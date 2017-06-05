@@ -40,10 +40,23 @@ $(document).on('turbolinks:load', function() {
   });
 
   function buildTweetHTML(tweet) {
+    var insertIcon = "";
+    if (tweet.icon) {
+      insertIcon = '<img src="' + tweet.icon +'" class="tweet-icon">';
+    }
+    var insertImage = "";
+    if (tweet.image) {
+      insertImage = '<img src="' + tweet.image +'" class="tweet-image-border">';
+    }
     var html =
     '<a href="/tweets/' + tweet.id + '">' +
       '<div class="tweet-wrapper">' +
+        insertIcon +
+        '<div class="tweets-nickname">' + '<h4>' + tweet.nickname + '</h4>' + '</div>' +
+        '<div class="tweets-username">' + '<h5>@' + tweet.username + '</h5>' + '</div>' +
         '<p class="tweets-content">' + tweet.content + '</p>' +
+        '<div class="tweets-image">' + insertImage + '</div>' +
+        '<h5 class="tweets-time">' + tweet.date + '</h5>' +
       '</div>' +
     '</a>';
     return html;
