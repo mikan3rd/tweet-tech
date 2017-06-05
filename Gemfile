@@ -5,15 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'acts_in_relation'
 gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
 gem 'pry-rails'
 gem 'carrierwave'
-gem 'dotenv'
 gem 'mini_magick'
 gem 'fog'
 
