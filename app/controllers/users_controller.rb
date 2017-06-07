@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   def search
     @global = true
+    @search = params[:search]
     tweet_ids = Like.group(:tweet_id).order('count_tweet_id DESC').limit(10).count(:tweet_id).keys
     @like_tweets = tweet_ids.map { |id| Tweet.find(id) }
   end
