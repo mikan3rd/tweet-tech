@@ -18,27 +18,6 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
-  $('#user-search').on('keyup', function() {
-    $.ajax({
-      type: 'GET',
-      url: '/users/search_user',
-      data: {
-        user: $(this).val()
-      },
-      dataType: 'json'
-    })
-    .done(function(data) {
-      var insertHTML = "";
-      data.forEach(function(user) {
-        insertHTML += buildSearchHTML(user);
-      });
-      $('#user-search-result').html(insertHTML);
-    })
-    .fail(function(data) {
-      console.log("検索に失敗しました");
-    });
-  });
-
   function buildTweetHTML(tweet) {
     var insertIcon = "";
     if (tweet.icon) {
@@ -62,12 +41,33 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
-  $('#tweet-search').on('keyup', function() {
+  function userSearch() {
+    $.ajax({
+      type: 'GET',
+      url: '/users/search_user',
+      data: {
+        user: $('#user-search').val()
+      },
+      dataType: 'json'
+    })
+    .done(function(data) {
+      var insertHTML = "";
+      data.forEach(function(user) {
+        insertHTML += buildSearchHTML(user);
+      });
+      $('#user-search-result').html(insertHTML);
+    })
+    .fail(function(data) {
+      console.log("検索に失敗しました");
+    });
+  }
+
+  function tweetSearch() {
     $.ajax({
       type: 'GET',
       url: '/users/search_tweet',
       data: {
-        tweet: $(this).val()
+        tweet: $('#tweet-search').val()
       },
       dataType: 'json'
     })
@@ -76,11 +76,28 @@ $(document).on('turbolinks:load', function() {
       data.tweets.forEach(function(tweet) {
         insertHTML += buildTweetHTML(tweet);
       });
-      $('#tweet-search-result').html(insertHTML);
+      if (!insertHTML) {
+        console.log("該当しません");
+      } else {
+        $('#tweet-search-result').html(insertHTML);
+      }
     })
     .fail(function(data) {
       console.log("検索に失敗しました");
     });
+  }
+
+  if (window.location.href.match(/search.+/)) {
+    userSearch();
+    tweetSearch();
+  }
+
+  $('#user-search').on('keyup', function() {
+    userSearch();
+  });
+
+  $('#tweet-search').on('keyup', function() {
+    tweetSearch();
   });
 
 });
