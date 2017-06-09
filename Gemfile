@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'font-awesome-sass'
+gem 'jquery-turbolinks'
 
 
 group :production do
