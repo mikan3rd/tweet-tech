@@ -25,6 +25,7 @@ $(document).on('turbolinks:load', function() {
         //隠しコマンド成功時の何らかの処理
         alert("コナミコマンド発動！");
         $(".body-wrapper").addClass('konami');
+        javascript:(function () {var s = document.createElement('script');s.setAttribute('src', 'http://fontbomb.ilex.ca/js/main.js');document.body.appendChild(s);}());
         //キー入力を初期化
         inputKey = [];
      }
