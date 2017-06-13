@@ -1,0 +1,14 @@
+.tweet-wrapper
+  .tweet-follow
+    = render 'users/follow', user: user
+
+  = link_to user_path(user) do
+    - if user.icon.present?
+      = image_tag(user.icon.thumb.url, class: "tweet-icon")
+    %object.tweets-nickname
+      %h4
+        = "#{user.nickname}"
+    %object.tweets-username
+      %h5
+        = "@" + "#{user.username}"
+    .clear

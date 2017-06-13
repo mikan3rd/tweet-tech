@@ -1,0 +1,27 @@
+.search-tabs-head {
+  margin: 10px;
+}
+
+.search-tabs-content {
+margin-top: -780px;
+}
+
+.search-box {
+  box-sizing: border-box;
+  background-color: white;
+  float: left;
+  margin: 10px;
+  width: 600px;
+  height: 154px;
+  border-radius: 10px;
+  border: 1px solid #e6ecf0;
+}
+
+.search-box input {
+  display: block;
+  margin: 50px auto;
+  width: 70%;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+}

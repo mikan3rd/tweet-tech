@@ -15,8 +15,10 @@
           / %li.head-btn.btn-default.glyphicon.glyphicon-bell
           /   通知
         .nav-right
-          %input.right-btn-input{ placeholder: "キーワード検索"}
-            .glyphicon.glyphicon-search
+          = form_tag("/users/search", method: :get) do
+            %input.right-btn-input{ name: "search", placeholder: "キーワード検索"}
+            %input.input-submit-btn{ id: "submit-search",type: "submit"}
+              %label.glyphicon.glyphicon-search{ for: "submit-search"}
           %ul.right-btn
             = link_to user_path(current_user) do
               %li.glyphicon.glyphicon-user.btn
