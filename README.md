@@ -2,7 +2,6 @@
 
 ### users table
 * gem 'devise' を使用
-* gem 'acts_in_relation' を使用
 
 | Column   | type   | Option |
 |:--|:--|:---|
@@ -15,9 +14,15 @@
 
 **Association**
 * has_many :tweets
-* has_many :likes
-* has_many :retweets
-* acts_in_relation with: :follow
+
+* has_many :likes, dependent: :destroy
+* has_many :like_tweets, through: :likes, source: :tweet
+
+* has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+* has_many :followings, through: :following_relationships
+
+* has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+* has_many :followers, through: :follower_relationships
 ***
 
 ### tweets table
@@ -31,20 +36,27 @@
 
 **Association**
 * belongs_to :user
-* has_many :likes
-* has_many :retweets
+  has_many :likes, dependent: :destroy
+  has_many :like_tweets, through: :likes, source: :tweet
+
+  # フォロー機能のアソシエーション
+  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  has_many :followings, through: :following_relationships
+
+  has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :follower_relationships
 ***
 
-### follows table
-* gem 'acts_in_relation' を使用
+### Relationshiops table
 
 | Column   | type   | Option |
 |:--|:--|:---|
-| user_id        | integer |  |
-| target_user_id | integer |  |
+| following_id   | references | null: false, unique: true |
+| follower_id_id | references | null: false, unique: true |
 
 **Association**
-* acts_in_relation :action, source: :user, target: :user
+* belongs_to :follower, class_name: "User"
+* belongs_to :following, class_name: "User"
 ***
 
 ## likes table
@@ -59,14 +71,3 @@
 * belongs_to :tweet
 ***
 
-## retweets table
-
-| Column   | type   | Option |
-|:--|:--|:---|
-| user  | references | foreign_key: true, null: false |
-| tweet | references | foreign_key: true, null: false |
-
-**Association**
-* belongs_to :user
-* belongs_to :tweet
-***
